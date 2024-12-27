@@ -12,8 +12,10 @@ const InputArea : React.FC<childProps> = ({getAnswerToParent}) => {
 
   const [prompt, setPrompt] = useState<string>("");
 
+  const endpoint = process.env.NEXT_PUBLIC_reply_url;
+
   const runRequest = () => {
-  axios.post("http://127.0.0.1:5000/generate-reply", {"query" : prompt})
+  axios.post( endpoint ? endpoint : "http://127.0.0.1:5000/generate-reply" , {"query" : prompt})
 
   .then((res)=>{
       getAnswerToParent(res.data.result[0].reply);

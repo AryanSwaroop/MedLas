@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from chains import Chain
 from portfolio import Portfolio
@@ -5,10 +6,13 @@ from pymongo import MongoClient
 from flask_cors import CORS
 import uuid
 import random
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Initialize Flask appcd a
 app = Flask(__name__)
-CORS(app,origins=['http://localhost:3000'])
+CORS(app,origins=[os.getenv("FRONTEND_URL")])
 
 
 # Initialize instances of Chain and Portfolio

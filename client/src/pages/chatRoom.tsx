@@ -31,6 +31,7 @@ const ChatRoom: React.FC<Props> = ({ reply }) => {
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.02 }}
       >
+        
         {replyAns.map((char, index) => (
           <motion.span
             key={char + index} // Stable key using a combination of char and index
