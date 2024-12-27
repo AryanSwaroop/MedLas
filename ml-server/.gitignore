@@ -1,0 +1,28 @@
+# Byte-compiled Python files
+*.pyc
+__pycache__/
+
+# Environment files
+.env
+serverEnv/
+serverEnv/*
+
+# SQLite database
+*.sqlite3
+
+# CSV data files
+*.csv
+
+# Vectorstore directory
+vectorstore/
+vectorstore/*
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Ignore all site-packages
+Lib/site-packages/
