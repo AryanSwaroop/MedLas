@@ -40,7 +40,7 @@ def generate_reply():
         reply = chain.write_reply(query, links)
         results.append({"query": query, "reply": reply})
 
-        client = MongoClient("mongodb://localhost:27017/")
+        client = MongoClient()
         db  = client["medlas"]
         collection = db["queries"]
         collection.insert_one({"query": query, "reply": reply , "_id": id})
@@ -60,7 +60,7 @@ def health_check():
 @app.route('/get-reply', methods=['GET'])
 def get_reply():
     try:
-        client = MongoClient("mongodb://localhost:27017/")
+        client = MongoClient(os.getenv("MongoDB_URI"))
         db  = client["medlas"]
         collection = db["queries"]
         queries = collection.find({"_id": id})
