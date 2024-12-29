@@ -21,10 +21,11 @@ const ChatRoom: React.FC<Props> = ({ reply }) => {
   useEffect(() => {
     setReplyAns([]);
     setReplyAns(splitStringUsingRegex(reply));
+    window.location.href = "#chatRoomDiv";
   },[reply])
 
   return (
-    <div className={styles.chatRoom}>
+    <div className={styles.chatRoom} id='chatRoomDiv'>
       <motion.p
         initial="hidden"
         whileInView="reveal"

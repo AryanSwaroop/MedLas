@@ -109,6 +109,7 @@
 
 .TopicParts {
   border: solid;
+  background-color: white;
   border-color: black;
   border-width: 0.1rem;
   text-align: left;
@@ -136,7 +137,7 @@
 /**************************Chat Room **************************/
 
 .chatRoom{
-  background-color: #383838;
+  background-color: white;
   width: 90%;
   margin: auto;
   margin-top: 10%;
