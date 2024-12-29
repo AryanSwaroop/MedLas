@@ -1,5 +1,4 @@
 import Bot from './pages/Bot'
-import './App.css'
 
 function App() {
 
