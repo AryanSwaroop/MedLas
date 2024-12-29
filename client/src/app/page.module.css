@@ -99,7 +99,7 @@
   color: #ffffff; /* White text for contrast */
   font-family: 'Arial', sans-serif; /* Modern font */
   text-align: center; /* Center-align content */
-  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+  transition: box-shadow 0.3s ease; 
   border-radius: 1rem;
   width: 80%;
   margin: auto;
@@ -115,15 +115,16 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 0.3rem;
-  font-weight: 200;
+  font-weight: 300;
   margin: 0.4rem;
   height: 3rem;
+  color: black;
   font-size: 1rem;
   padding: 0.5rem;
 }
 
 .TopicParts:hover {
-  background-color: #f86666;
+  background-color: #ff6c6c;
   color: white;
 }
 
