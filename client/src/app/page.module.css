@@ -94,26 +94,37 @@
   grid-template-columns: 50% 50%;
   justify-content: space-between;
   padding: 0.8rem;
-  background-color: rgb(255, 97, 97);
-  border-radius: 2rem;
+  background-color: #ff4d4d; /* Bright red background */ /* Slightly darker red border */
+  box-shadow: 0 3px 12px #cc0000; /* Soft box shadow */
+  color: #ffffff; /* White text for contrast */
+  font-family: 'Arial', sans-serif; /* Modern font */
+  text-align: center; /* Center-align content */
+  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+  border-radius: 1rem;
   width: 80%;
   margin: auto;
 }
 
 .TopicParts {
+  border: solid;
+  border-color: black;
+  border-width: 0.1rem;
   text-align: left;
-  border: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-radius: 0.3rem;
-  font-weight: 500;
+  font-weight: 200;
   margin: 0.4rem;
   height: 3rem;
   font-size: 1rem;
-  padding: 1rem;
-  padding: 0.3rem;
+  padding: 0.5rem;
+}
+
+.TopicParts:hover {
+  background-color: #f86666;
+  color: white;
 }
 
 /**************************Chat Area**************************/
