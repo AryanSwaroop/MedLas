@@ -20,7 +20,7 @@ const Bot = () => {
 
         <div className={styles.TopicContainer}>
         <h1 className={styles.TextForm}>
-            CHOOSE YOUR TOPIC
+            CHOOSE TOPIC
         </h1>
         </div>
     
