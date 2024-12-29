@@ -6,9 +6,9 @@
 /**************************Button**************************/
 
 .buttonType {
-  height: 2rem;
-  width: 2rem;
-  background-color: red;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: #ff4d4d;
   border-radius: 0 0.5rem 0.5rem 0 ;
   border : none;
 }
@@ -26,7 +26,7 @@
 /**************************Input**************************/
 
 .InputAreaStyles {
-  height: 2rem;
+  height: 2.5rem;
   width: 80%;
   border-radius: 0.5rem 0 0 0.5rem ;
   padding-left: 0.5rem;
@@ -63,9 +63,9 @@
 }
 
 .TextForm {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .LoadingDiv{
@@ -83,8 +83,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 20%;
-  margin-bottom: 5%;
+  margin-top: 25%;
+  margin-bottom: 2%;
 }
 
 /**************************Bot Area**************************/
