@@ -1,140 +1,21 @@
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
   min-height: 100svh;
-  font-family: var(--font-geist-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-}
-
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-}
 
 /**************************Button**************************/
 
-.Button {
-  height: 10%;
-  width: 10%;
+.buttonType {
+  height: 2rem;
+  width: 2rem;
+  background-color: red;
+  border-radius: 0 0.5rem 0.5rem 0 ;
+  border : none;
 }
 
 .buttonImage {
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1rem;
+  width: 1rem;
 }
 
 /**************************Button**************************/
@@ -146,8 +27,14 @@ a.secondary {
 .InputAreaStyles {
   height: 2rem;
   width: 80%;
+  border-radius: 0.5rem 0 0 0.5rem ;
   padding-left: 0.5rem;
+  border: none;
   margin-bottom: 0;
+}
+
+.InputAreaStyles:focus {
+  outline: none;
 }
 
 /**************************Input**************************/
@@ -156,59 +43,76 @@ a.secondary {
 
 /**************************Bot Area**************************/
 
+.svgStyles {
+  height: 2rem;
+  width: 2rem;
+}
+
+
 .TextAndButton {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: center;
   width: 80%;
   top: 3%;
+  margin: auto;
   margin-left: 10%;
   position: fixed;
 }
 
 .TextForm {
-  justify-content: center;
   font-size: 1.2rem;
-  width: 80%;
-  margin-left: 10%;
-  color: #ccc;
-  margin-top: 2rem;
+  color: white;
   font-weight: 500;
-  text-align: center;
 }
 
 .LoadingDiv{
   background-color: #383838;
   margin : auto;
-  margin-top : 15%;
+  margin-top : 25%;
   width: 50px;
   height: 50px;
   border-radius: 50px;
+}
+
+.TopicContainer {
+  display: flex;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+  margin-bottom: 5%;
 }
 
 /**************************Bot Area**************************/
 
 /**************************Chat Area**************************/
 
-.buildTopics {
-  display: flex;
-  justify-content: center;
-}
-
 .preBuildQuestions{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: space-between;
   padding: 0.8rem;
-  background-color: #1a1a1a;
-  border-radius: 1rem;
-  width: 90%;
+  background-color: rgb(255, 97, 97);
+  border-radius: 2rem;
+  width: 80%;
   margin: auto;
-  margin-top: 5rem;
 }
 
 .TopicParts {
-  color: rgb(200, 200, 200);
+  text-align: left;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.3rem;
   font-weight: 500;
   margin: 0.4rem;
-  font-size: 0.8rem;
+  height: 3rem;
+  font-size: 1rem;
+  padding: 1rem;
   padding: 0.3rem;
 }
 
