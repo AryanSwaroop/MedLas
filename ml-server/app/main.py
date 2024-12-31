@@ -13,7 +13,7 @@ load_dotenv()
 # Initialize Flask appcd a
 app = Flask(__name__)
 CORS(app,
-origins=["https://medlas.vercel.app"]
+origin=["https://medlas.vercel.app/"]
 )
 
 
