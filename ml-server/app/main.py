@@ -12,7 +12,10 @@ load_dotenv()
 
 # Initialize Flask appcd a
 app = Flask(__name__)
-CORS(app,origins=["https://medlas.vercel.app"])
+CORS(app,
+origins=["https://medlas.vercel.app"],
+allow_headers=["Access-Control-Allow-Origin","Access-Control-Allow-Methods","Content-Type"],
+)
 
 
 # Initialize instances of Chain and Portfolio
