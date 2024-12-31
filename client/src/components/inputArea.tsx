@@ -15,11 +15,11 @@ const InputArea : React.FC<childProps> = ({getAnswerToParent}) => {
   const endpoint = process.env.NEXT_PUBLIC_reply_url;
 
   const runRequest = () => {
-  axios.post( endpoint ? endpoint : "http://127.0.0.1:5000/generate-reply" , {"query" : prompt},
+  axios.post( "https://medlas.onrender.com" , {"query" : prompt},
     {
       headers:{
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': process.env.NEXT_PUBLIC_front_url ? process.env.NEXT_PUBLIC_front_url : "http://localhost:3000"
+        'Access-Control-Allow-Origin': "https://medlas.vercel.app/"
       }
     }
   )
