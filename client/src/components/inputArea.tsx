@@ -12,8 +12,6 @@ const InputArea : React.FC<childProps> = ({getAnswerToParent}) => {
 
   const [prompt, setPrompt] = useState<string>("");
 
-  const endpoint = process.env.NEXT_PUBLIC_reply_url;
-
   const runRequest = () => {
   axios.post( "https://medlas.onrender.com" , {"query" : prompt},
     {

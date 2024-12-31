@@ -3,7 +3,7 @@
 import InputArea from "@/components/inputArea";
 import styles from '../app/page.module.css';
 import ChatRoom from "./chatRoom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Loading from "@/components/loadingElement";
 
 const Bot = () => {
