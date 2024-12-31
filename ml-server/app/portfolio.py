@@ -12,7 +12,7 @@ load_dotenv()
 
 class Portfolio:
 
-    def __init__(self, file_path=os.getenv("File_Link")):
+    def __init__(self, file_path=str(os.getenv("File_Link"))):
         self.file_path = file_path  # Save the path to the portfolio CSV file
         self.data = pd.read_csv(file_path)  # Load the portfolio data from the CSV file into a pandas DataFrame
         self.chroma_client = chromadb.PersistentClient("vectorstore")  # Initialize a persistent ChromaDB client
