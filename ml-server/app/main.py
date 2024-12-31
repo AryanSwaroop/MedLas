@@ -12,7 +12,7 @@ load_dotenv()
 
 # Initialize Flask appcd a
 app = Flask(__name__)
-CORS(app,origins=[str(os.getenv("FRONTEND_URL"))])
+CORS(app,origins=["https://medlas.vercel.app"])
 
 
 # Initialize instances of Chain and Portfolio
