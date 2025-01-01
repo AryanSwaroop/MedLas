@@ -13,7 +13,7 @@ const InputArea : React.FC<childProps> = ({getAnswerToParent}) => {
   const [prompt, setPrompt] = useState<string>("");
 
   const runRequest = () => {
-  axios.post( "https://medlas.onrender.com" , {"query" : prompt},
+  axios.post( "https://medlas.onrender.com/generate-reply" , {"query" : prompt},
     
     {
       withCredentials: true,
