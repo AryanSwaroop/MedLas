@@ -2,7 +2,6 @@ import os
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from pymongo import MongoClient
 import uuid
 import random
 from dotenv import load_dotenv
@@ -13,6 +12,7 @@ load_dotenv()
 
 # Initialize FastAPI app
 app = FastAPI()
+
 
 # Configure CORS
 app.add_middleware(
@@ -44,11 +44,6 @@ async def generate_reply(request: QueryRequest):
         reply = chain.write_reply(query, links)
         results.append({"query": query, "reply": reply})
 
-        client = MongoClient()
-        db = client["medlas"]
-        collection = db["queries"]
-        collection.insert_one({"query": query, "reply": reply, "_id": id})
-
         return {"success": True, "result": results}
 
     except Exception as e:
@@ -61,16 +56,6 @@ async def health_check():
     """
     return {"status": "OK", "message": "API is running successfully."}
 
-@app.get("/get-reply")
-async def get_reply():
-    try:
-        client = MongoClient(os.getenv("MongoDB_URI"))
-        db = client["medlas"]
-        collection = db["queries"]
-        queries = collection.find({"_id": id})
-        return {"success": True, "result": list(queries), "id": id}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn
