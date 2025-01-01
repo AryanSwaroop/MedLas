@@ -1,38 +1,42 @@
 import os
-from flask import Flask, request, jsonify
-from chains import Chain
-from portfolio import Portfolio
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 from pymongo import MongoClient
-from flask_cors import CORS
 import uuid
 import random
 from dotenv import load_dotenv
+from chains import Chain
+from portfolio import Portfolio
 
 load_dotenv()
 
-# Initialize Flask appcd a
-app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://medlas.vercel.app"}})
+# Initialize FastAPI app
+app = FastAPI()
 
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://medlas.vercel.app"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Initialize instances of Chain and Portfolio
 chain = Chain()
 portfolio = Portfolio()
 
-@app.route('/generate-reply', methods=['POST'])
-def generate_reply():
+class QueryRequest(BaseModel):
+    query: str
 
+@app.post("/generate-reply")
+async def generate_reply(request: QueryRequest):
     global id
-    
     try:
-        id = str(uuid.uuid4()) + str(random.randint(0,1000000))
+        id = str(uuid.uuid4()) + str(random.randint(0, 1000000))
+        query = request.query
 
-        # Get the URL from the request body
-        data = request.get_json()
-        query = data.get('query')
-        if not query:
-            return jsonify({'error': 'message is required'}), 400
-        
         portfolio.load_portfolio()
         results = []
 
@@ -41,33 +45,33 @@ def generate_reply():
         results.append({"query": query, "reply": reply})
 
         client = MongoClient()
-        db  = client["medlas"]
+        db = client["medlas"]
         collection = db["queries"]
-        collection.insert_one({"query": query, "reply": reply , "_id": id})
-        
-        return jsonify({"success": True, "result": results})
-    
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        collection.insert_one({"query": query, "reply": reply, "_id": id})
 
-@app.route('/health', methods=['GET'])
-def health_check():
+        return {"success": True, "result": results}
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/health")
+async def health_check():
     """
     Health check endpoint.
     """
-    return jsonify({"status": "OK", "message": "API is running successfully."})
+    return {"status": "OK", "message": "API is running successfully."}
 
-@app.route('/get-reply', methods=['GET'])
-def get_reply():
+@app.get("/get-reply")
+async def get_reply():
     try:
         client = MongoClient(os.getenv("MongoDB_URI"))
-        db  = client["medlas"]
+        db = client["medlas"]
         collection = db["queries"]
         queries = collection.find({"_id": id})
-        return jsonify({"success": True, "result": list(queries), "id": id})
+        return {"success": True, "result": list(queries), "id": id}
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        raise HTTPException(status_code=500, detail=str(e))
 
-if __name__ == '__main__':
-    # Run the Flask app
-    app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=5000)
