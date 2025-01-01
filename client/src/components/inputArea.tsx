@@ -14,7 +14,9 @@ const InputArea : React.FC<childProps> = ({getAnswerToParent}) => {
 
   const runRequest = () => {
   axios.post( "https://medlas.onrender.com" , {"query" : prompt},
+    
     {
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json"
       }
