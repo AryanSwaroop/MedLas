@@ -18,6 +18,7 @@ const InputArea : React.FC<childProps> = ({getAnswerToParent}) => {
     {
       withCredentials: true,
       headers: {
+        "Access-Control-Allow-Origin": "https://medlas.vercel.app/",
         "Content-Type": "application/json"
       }
     }
