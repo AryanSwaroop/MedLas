@@ -1,7 +1,6 @@
 'use client';
 
 import splitStringUsingRegex from '@/transitions/splitUsingRegex';
-import styles from '../app/page.module.css';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
@@ -12,27 +11,28 @@ interface Props {
 const variants = {
   hidden: { opacity: 0 },
   reveal: { opacity: 1 },
-}
+};
 
 const ChatRoom: React.FC<Props> = ({ reply }) => {
-
-  const [replyAns , setReplyAns] = useState(splitStringUsingRegex(reply));
+  const [replyAns, setReplyAns] = useState(splitStringUsingRegex(reply));
 
   useEffect(() => {
-    setReplyAns([]);
+    setReplyAns([]); // Clear current state before setting new reply
     setReplyAns(splitStringUsingRegex(reply));
-    window.location.href = "#chatRoomDiv";
-  },[reply])
+    window.location.href = "#chatRoomDiv"; // Scroll to the chat room div
+  }, [reply]);
 
   return (
-    <div className={styles.chatRoom} id='chatRoomDiv'>
+    <div
+      id="chatRoomDiv"
+      className="text-black bg-white w-11/12 mx-auto mt-10 p-4 rounded-xl mb-10"
+    >
       <motion.p
         initial="hidden"
         whileInView="reveal"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.02 }}
       >
-        
         {replyAns.map((char, index) => (
           <motion.span
             key={char + index} // Stable key using a combination of char and index
@@ -44,7 +44,7 @@ const ChatRoom: React.FC<Props> = ({ reply }) => {
         ))}
       </motion.p>
     </div>
-  )
-}
+  );
+};
 
 export default ChatRoom;
