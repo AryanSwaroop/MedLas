@@ -43,7 +43,6 @@ class Chain:
             {query}
 
             ### INSTRUCTION:
-            Provide all the reponse body with appropriate html tags like <b> for headings and <a> tag for links.
             You are MedLas, a AI medical councellor in a Gaynaa clinic. Gaynaa is a clinic dealing with various medical treatments. 
             in fulfilling their needs.
             also add some more relevant data for user query : {query}
