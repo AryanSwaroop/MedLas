@@ -25,7 +25,7 @@ const ChatRoom: React.FC<Props> = ({ reply }) => {
   return (
     <div
       id="chatRoomDiv"
-      className="text-black bg-white w-11/12 mx-auto mt-10 p-4 rounded-xl mb-10"
+      className="text-amber-800 bg-white w-11/12 mx-auto mt-10 p-4 rounded-xl mb-10"
     >
       <motion.p
         initial="hidden"

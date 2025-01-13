@@ -4,8 +4,13 @@ import InputArea from "@/components/inputArea";
 import ChatRoom from "./chatRoom";
 import { useState } from "react";
 import Loading from "@/components/loadingElement";
+import clsx from "clsx";
 
 const Bot = () => {
+
+    const classOfProblems = "text-black font-semibold mb-1 text-sm";
+    const classOfButtons = "flex shadow-sm shadow-black m-auto items-center flex-col justify-center bg-white text-black  border-black rounded-full w-20 h-20 p-2 hover:bg-amber-100 hover:text-white hover:border-white";
+
     const [replyAnswer, setReplyAnswer] = useState<string>("");
 
     const handleResult = (res: string): void => {
@@ -16,44 +21,45 @@ const Bot = () => {
         <>
             <InputArea getAnswerToParent={handleResult} />
 
-            <div className="flex flex-col items-center mt-6">
-                <h1 className="text-white mt-20 text-2xl font-semibold">CHOOSE TOPIC</h1>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 p-4 bg-red-500 shadow-[0_3px_12px_#cc0000] text-white font-sans text-center transition-shadow duration-300 rounded-xl w-4/5 mx-auto my-6">
-                <button className="flex items-center justify-between bg-white text-black border border-black rounded-md p-2 hover:bg-red-400 hover:text-white hover:border-white">
-                    <p>Skin</p>
+            <div className="mt-20 grid grid-cols-2 gap-4 p-4 bg-amber-800 shadow-sm shadow-amber-800 text-white font-sans text-center rounded-xl w-4/5 mx-auto">
+                <button className={clsx(classOfButtons)}>
+                    <p className={clsx(classOfProblems)}>Skin</p>
                     <img src="/cosmetics.svg" className="h-8 w-8" />
                 </button>
 
-                <button className="flex items-center justify-between bg-white text-black border border-black rounded-md p-2 hover:bg-red-400 hover:text-white hover:border-white">
-                    <p>Ageing</p>
+                <button className={clsx(classOfButtons)}>                   
+                    <p className={clsx(classOfProblems)}>Clean</p>
                     <img src="/skin.svg" className="h-8 w-8" />
                 </button>
 
-                <button className="flex items-center justify-between bg-white text-black border border-black rounded-md p-2 hover:bg-red-400 hover:text-white hover:border-white">
-                    <p>Hair Loss</p>
+                <button className={clsx(classOfButtons)}>
+                    <p className={clsx(classOfProblems)}>Hair</p>
                     <img src="/hair.svg" className="h-8 w-8" />
                 </button>
 
-                <button className="flex items-center justify-between bg-white text-black border border-black rounded-md p-2 hover:bg-red-400 hover:text-white hover:border-white">
-                    <p>Weight Loss</p>
+                <button className={clsx(classOfButtons)}>
+                    <p className={clsx(classOfProblems)}>Body</p>
                     <img src="/weight.svg" className="h-8 w-8" />
                 </button>
 
-                <button className="flex items-center justify-between bg-white text-black border border-black rounded-md p-2 hover:bg-red-400 hover:text-white hover:border-white">
-                    <p>Eyes Lips</p>
+                <button className={clsx(classOfButtons)}>
+                    <p className={clsx(classOfProblems)}>Eyes</p>
                     <img src="/eyes.svg" className="h-8 w-8" />
                 </button>
 
-                <button className="flex items-center justify-between bg-white text-black border border-black rounded-md p-2 hover:bg-red-400 hover:text-white hover:border-white">
-                    <p>Hand & Foot</p>
+                <button className={clsx(classOfButtons)}>
+                    <p className={clsx(classOfProblems)}>Foot</p>
                     <img src="/foot.svg" className="h-8 w-8" />
                 </button>
 
-                <button className="flex items-center justify-between bg-white text-black border border-black rounded-md p-2 hover:bg-red-400 hover:text-white hover:border-white">
-                    <p>Face Feature</p>
+                <button className={clsx(classOfButtons)}>
+                    <p className={clsx(classOfProblems)}>Face</p>
                     <img src="/face.svg" className="h-8 w-8" />
+                </button>
+
+                <button className={clsx(classOfButtons)}>
+                    <p className={clsx(classOfProblems)}>Aging</p>
+                    <img src="/aging.svg" className="h-8 w-8" />
                 </button>
             </div>
 

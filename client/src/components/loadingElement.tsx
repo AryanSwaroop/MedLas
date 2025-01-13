@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export default function Keyframes() {
   return (
     <motion.div
-      className="bg-gray-700 mx-auto mt-32 w-12 h-12 rounded-full"
+      className="bg-amber-800 mx-auto mt-32 w-12 h-12 rounded-full"
       animate={{
         scale: [1, 2, 2, 1, 1],
         rotate: [0, 0, 180, 180, 0],
