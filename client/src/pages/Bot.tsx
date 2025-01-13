@@ -24,32 +24,32 @@ const Bot = () => {
             <div className="mt-20 grid grid-cols-2 gap-4 p-4 bg-amber-800 shadow-sm shadow-amber-800 text-white font-sans text-center rounded-xl w-4/5 mx-auto">
                 <button className={clsx(classOfButtons)}>
                     <p className={clsx(classOfProblems)}>Skin</p>
-                    <img src="/cosmetics.svg" className="h-8 w-8" />
+                    <img src="/Newcosmetics.svg" className="h-8 w-8" />
                 </button>
 
                 <button className={clsx(classOfButtons)}>                   
                     <p className={clsx(classOfProblems)}>Clean</p>
-                    <img src="/skin.svg" className="h-8 w-8" />
+                    <img src="/Newskin.svg" className="h-8 w-8" />
                 </button>
 
                 <button className={clsx(classOfButtons)}>
                     <p className={clsx(classOfProblems)}>Hair</p>
-                    <img src="/hair.svg" className="h-8 w-8" />
+                    <img src="/Newhair.svg" className="h-8 w-8" />
                 </button>
 
                 <button className={clsx(classOfButtons)}>
                     <p className={clsx(classOfProblems)}>Body</p>
-                    <img src="/weight.svg" className="h-8 w-8" />
+                    <img src="/Newweight.svg" className="h-8 w-8" />
                 </button>
 
                 <button className={clsx(classOfButtons)}>
                     <p className={clsx(classOfProblems)}>Eyes</p>
-                    <img src="/eyes.svg" className="h-8 w-8" />
+                    <img src="/Neweyes.svg" className="h-8 w-8" />
                 </button>
 
                 <button className={clsx(classOfButtons)}>
                     <p className={clsx(classOfProblems)}>Foot</p>
-                    <img src="/foot.svg" className="h-8 w-8" />
+                    <img src="/Newfoot.svg" className="h-8 w-8" />
                 </button>
 
                 <button className={clsx(classOfButtons)}>
