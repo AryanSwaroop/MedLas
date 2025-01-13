@@ -46,7 +46,7 @@ const InputArea: React.FC<ChildProps> = ({ getAnswerToParent }) => {
     >
       <input
         placeholder="Ask Away!"
-        className="h-10 w-4/5 text-black rounded-l-md border-r-0 pl-2 border-2 border-amber-800 focus:outline-none"
+        className="h-10 w-4/5 text-black rounded-l-md rounded-r-none border-r-0 pl-2 border-2 border-amber-800 focus:outline-none"
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
       />
