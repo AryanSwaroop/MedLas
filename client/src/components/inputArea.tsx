@@ -46,13 +46,13 @@ const InputArea: React.FC<ChildProps> = ({ getAnswerToParent }) => {
     >
       <input
         placeholder="Ask Away!"
-        className="h-10 w-4/5 text-black rounded-l-md rounded-r-none border-r-0 pl-2 border-2 border-amber-800 focus:outline-none"
+        className="h-12 w-4/5 text-black rounded-l-md rounded-r-none border-r-0 pl-2 border-2 border-amber-800 focus:outline-none"
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
       />
       <button
         type="submit"
-        className="h-10 w-10 bg-amber-800 rounded-r-md border-none flex items-center justify-center"
+        className="h-12 w-10 bg-amber-800 rounded-r-md border-none flex items-center justify-center"
       >
         <img src="/send.svg" className="h-4 w-4" />
       </button>
